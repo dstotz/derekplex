@@ -1,0 +1,50 @@
+body {
+  background-color: #494949;
+  color: white;
+}
+
+.header {
+  padding-top: 35px;
+}
+
+.plex-title {
+  font-weight: 700;
+  letter-spacing: -1px;
+  font-size: 75px;
+  margin-bottom: 25px;
+}
+
+
+.main-plex-logo {
+  width: 179px;
+  margin-top: -35px;
+}
+
+img.main-plex-logo:hover, img.main-plex-logo:focus {
+  content: url('/images/plex-logo-full-no-background-black.svg');
+}
+
+.plex-links p {
+  font-size: 35px;
+}
+
+a {
+  color: #CC7C19;
+  text-decoration: none;
+  font-size: 35px;
+  font-weight: 500;
+}
+
+a:hover, a:focus {
+  color: #F9BE03;
+  text-decoration: blink;
+}
+
+.footer {
+  padding-top: 35px;
+}
+
+.changelog-link {
+  font-size: 20px;
+  font-weight: 400;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 3260.5 1172"
+	 style="enable-background:new 0 0 3260.5 1172;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:url(#chevron_1_);}
+</style>
+<title>plex-logo-light</title>
+<desc>Created with Sketch.</desc>
+<g>
+	<path id="X" sketch:type="MSShapeGroup" class="st0" d="M3183.8,87.8h-290l-290,500l290,500h289.7l-289.7-499.8L3183.8,87.8"/>
+	
+		<radialGradient id="chevron_1_" cx="2577.5693" cy="64.1172" r="0.925" gradientTransform="matrix(610 0 0 1000.5 -1569489.25 -63563.8594)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#F9BE03"/>
+		<stop  offset="1" style="stop-color:#CC7C19"/>
+	</radialGradient>
+	<path id="chevron" sketch:type="MSShapeGroup" class="st1" d="M2283.8,87.8h290l320,500.2l-320,500.2h-290l320-500.2L2283.8,87.8"
+		/>
+	<path id="E" sketch:type="MSShapeGroup" class="st0" d="M2183.8,1087.8h-577.1V87.8h577.1v173.7h-364.6v219.6h339.3v173.7h-339.3
+		v257.9h364.6V1087.8"/>
+	<path id="L" sketch:type="MSShapeGroup" class="st0" d="M889.1,1087.8V87.8h212v824.9h405.6v175.1H889.1"/>
+	<path id="Path" class="st0" d="M687.8,646.6c-67.3,57-162.9,85.5-286.9,85.5h-91v355.7h-212V731.8V558.2l290,0.4
+		c177.6-2.1,186.8-110.8,186.8-148.5c0-35,0-146.8-157.8-148.5l-319,0V87.8h319.4c121.3,0,213.5,26.1,276.7,78.3
+		c63.2,52.2,94.7,130.1,94.7,233.6C788.7,507.3,755,589.6,687.8,646.6z"/>
+	<rect id="Path_1_" x="97.8" y="197.8" class="st0" width="212.2" height="429"/>
+</g>
+</svg>
