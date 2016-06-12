@@ -3,8 +3,10 @@ $LOAD_PATH.unshift './lib'
 require 'bundler/setup'
 require 'sinatra'
 require 'logger'
-require 'config'
 require 'base'
+require 'dotenv'
+
+Dotenv.load
 
 LOG = Logger.new(STDOUT)
 
@@ -27,12 +29,12 @@ end
 
 # Plex Requests
 get '/requests' do
-  redirect to media_server(port: PLEX_REQUEST_PORT)
+  redirect to media_server(port: ENV['PLEX_REQUEST_PORT'])
 end
 
 # PlexPy
 get '/monitor' do
-  redirect to media_server(port: PLEXPY_PORT)
+  redirect to media_server(port: ENV['PLEXPY_PORT'])
 end
 
 get '/stats' do

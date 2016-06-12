@@ -5,6 +5,7 @@ GEM
     backports (3.6.8)
     byebug (9.0.5)
     coderay (1.1.1)
+    dotenv (0.9.0)
     highline (1.7.8)
     httparty (0.13.7)
       json (~> 1.8)
@@ -44,6 +45,7 @@ PLATFORMS
 
 DEPENDENCIES
   addressable
+  dotenv
   highline
   httparty
   pry-byebug

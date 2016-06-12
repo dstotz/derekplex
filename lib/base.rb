@@ -1,4 +1,11 @@
 def media_server(ip: nil, port: nil, protocol: 'http')
-  ip = SERVER_IP_ADDRESS if ip.nil? && defined?(SERVER_IP_ADDRESS)
-  "#{protocol}://#{ip}:#{port}/"
+  server_ip = ip || ENV['SERVER_IP_ADDRESS']
+  construct_uri(protocol, server_ip, port)
+end
+
+def construct_uri(protocol, host, port)
+  return '/' if host.nil?
+  uri = "#{protocol}://#{host}"
+  uri += ":#{port}" if port
+  uri
 end
