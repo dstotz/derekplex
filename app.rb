@@ -37,6 +37,17 @@ get '/monitor' do
   redirect to media_server(port: ENV['PLEXPY_PORT'])
 end
 
+# Sonarr
+get '/sonarr' do
+  redirect to media_server(port: ENV['SONARR_PORT'])
+end
+
+# TODO: Build stats page using Plex API
 get '/stats' do
   erb :stats
+end
+
+# Plex It tutorial
+get '/plex-it' do
+  erb :plex_it
 end

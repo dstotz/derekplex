@@ -3,8 +3,37 @@ body {
   color: white;
 }
 
+p {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+h1 {
+  padding-bottom: 15px;
+}
+
+h3 {
+  font-size: 20px !important;
+}
+
 .header {
   padding-top: 35px;
+}
+
+pre {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+a {
+  color: #CC7C19;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover, a:focus {
+  color: #F9BE03;
+  text-decoration: blink;
 }
 
 .plex-title {
@@ -14,6 +43,9 @@ body {
   margin-bottom: 25px;
 }
 
+.plex-logo {
+  font-size: 35px;
+}
 
 .main-plex-logo {
   width: 179px;
@@ -28,18 +60,6 @@ img.main-plex-logo:hover, img.main-plex-logo:focus {
   font-size: 35px;
 }
 
-a {
-  color: #CC7C19;
-  text-decoration: none;
-  font-size: 35px;
-  font-weight: 500;
-}
-
-a:hover, a:focus {
-  color: #F9BE03;
-  text-decoration: blink;
-}
-
 .footer {
   padding-top: 35px;
 }
@@ -47,4 +67,14 @@ a:hover, a:focus {
 .changelog-link {
   font-size: 20px;
   font-weight: 400;
+}
+
+.btn-primary, .btn-primary:active {
+  background-color: #CC7C19;
+  border-color: #CC7C19;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #F9BE03;
+  border-color: #F9BE03;
 }

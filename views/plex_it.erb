@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Derek's Plex Stats</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="shortcut icon" href="images/favicon.png">
+
+  <script src="js/jquery-1.11.0.min.js"></script>
+  <script src="js/URI.js"></script>
+  <script src="https://js.pusher.com/2.1/pusher.min.js"></script>
+  <script src="js/home.js"></script>
+</head>
+<body id="stats">
+  <div>
+    <center>
+      <div class="header">
+        <p class="plex-title"><%= ENV['SERVER_OWNER_NAME'].upcase %>'S <a href="/plex" class="plex-logo"><img class="main-plex-logo" src="/images/plex-logo-full-no-background.svg"></a></p>
+      </div>
+      
+      <h1><a href="/">Home >> </a>Plex It!</h1>
+
+      <div class="col-md-8 col-md-offset-2">
+        <h3>You can queue YouTube or other web videos onto Plex to be watched later or as a group</h3>
+
+        <p>While watching a video, you simply click the Plex It! bookmark to have the video sent to the Plex server and added to the queue. It will then stay there until the video is removed.</p>
+
+        <hr>
+        <p>
+          <a class="btn btn-primary btn-lg btn-plexit" href="javascript:(function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//plex.tv/queue/bookmarklet_payload';var h=d.getElementsByTagName('head')[0];h.appendChild(s);}(document))" style="-webkit-user-select: text;"><span class="plexit-hidden">❯</span> Plex It!</a> Drag this button to your bookmark bar on your web browser
+        </p>
+
+        <h1>Or</h1>
+
+        <div>
+          <p>Create a new bookmark on your web browser called Plex It with the following address:</p>
+          <pre><code>javascript:(function(d){var s=d.createElement('script');s.type='text/javascript';s.src='//plex.tv/queue/bookmarklet_payload';var h=d.getElementsByTagName('head')[0];h.appendChild(s);}(document))</code></pre>
+        </div>
+        <hr>
+
+        <div>
+          <p>For more information, you can read up on the Plex Queue <a href="https://app.plex.tv/web/app#!/playlist/queue/help">here</a></p>
+        </div>
+      </div>
+    </center>
+  </div>
+</body>
+</html
+
