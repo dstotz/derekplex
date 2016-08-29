@@ -6,6 +6,7 @@ gem 'httparty'
 gem 'addressable'
 gem 'highline'
 gem 'dotenv'
+gem 'plex-ruby'
 
 group :test, :development do
   gem 'pry-byebug'

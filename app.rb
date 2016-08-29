@@ -4,11 +4,13 @@ require 'bundler/setup'
 require 'sinatra'
 require 'logger'
 require 'base'
+require 'plex_server_stats'
 require 'dotenv'
 
 Dotenv.load
 
 LOG = Logger.new(STDOUT)
+SERVER_STATS = PlexServerStats.new(ENV['SERVER_IP_ADDRESS'], ENV['SERVER_PORT'], ENV['SERVER_AUTH_TOKEN'])
 
 before '*' do
   redirect request.url.sub(%r{^http://}, 'https://') unless request.secure? || request.host == 'localhost'
@@ -42,9 +44,15 @@ get '/sonarr' do
   redirect to media_server(port: ENV['SONARR_PORT'])
 end
 
-# TODO: Build stats page using Plex API
+# Plex server stats using Plex API
 get '/stats' do
   erb :stats
+end
+
+get '/refresh-stats' do
+  SERVER_STATS.refresh
+  redirect to '/stats'
+  # erb :stats
 end
 
 # Plex It tutorial

@@ -36,6 +36,14 @@ a:hover, a:focus {
   text-decoration: blink;
 }
 
+.orange {
+  color: #CC7C19;
+}
+
+.yellow {
+  color: #F9BE03;
+}
+
 .plex-title {
   font-weight: 700;
   letter-spacing: -1px;
@@ -77,4 +85,9 @@ img.main-plex-logo:hover, img.main-plex-logo:focus {
 .btn-primary:hover, .btn-primary:focus {
   background-color: #F9BE03;
   border-color: #F9BE03;
+}
+
+.stat-results {
+    padding-bottom: 0;
+    padding-top: 0;
 }

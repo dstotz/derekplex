@@ -23,11 +23,44 @@
       </div>
       
       <div>
-        <h1><a href="/">Home >> </a>Coming Soon!</h1>
+        <h1><a href="/">Home >> </a>Plex Stats</h1>
+        <% SERVER_STATS.refresh_if_out_of_date %>
       </div>
-      
+
+      <div>
+        <h1>Added this week</h1>
+        <% for section, results in SERVER_STATS.media_added_this_week_by_section %>
+          <%= "<h3 class='orange'>#{section}</h2>" %>
+          <% for media in results %>
+            <% if media.type == 'episode' %>
+              <%= "<p class='stat-results'><span class='yellow'>#{media.grandparent_title}</span>: #{media.title}</p>" %>
+            <% else %>
+              <% if media.title.match(/\d/) %>
+                <%= '<p class="stat-results">' + media.title.gsub(/\d/) { |e| "<span class='yellow'>#{e}</span>" } + '</p>' %>
+              <% else %>
+                <%= "<p class='stat-results'>#{media.title}</p>" %>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div>
+        <br />
+        <h1>Library Totals</h1>
+        <% for section_name, section_count in SERVER_STATS.count_by_section %>
+          <%= "<p class='stat-results'><span class='yellow'>#{section_name}</span>: #{section_count}</p>" %>
+        <% end %>
+      </div>
+
+      <div>
+        <form action="/refresh-stats" method="get">
+          <br />
+          <input class="btn-primary" type="submit" value="Refresh">
+          <p />
+        </form>
+      </div>
     </center>
   </div>
 </body>
 </html
-
