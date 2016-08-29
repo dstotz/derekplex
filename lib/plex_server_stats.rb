@@ -1,6 +1,5 @@
 require 'plex-ruby'
 require 'dotenv'
-require 'pry'
 
 Dotenv.load '../.env'
 
