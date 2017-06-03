@@ -1,12 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
-gem 'sinatra-contrib'
-gem 'httparty'
-gem 'addressable'
-gem 'highline'
 gem 'dotenv'
 gem 'plex-ruby'
+gem 'time_diff'
 
 group :test, :development do
   gem 'pry-byebug'

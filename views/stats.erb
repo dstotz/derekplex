@@ -24,7 +24,6 @@
       
       <div>
         <h1><a href="/">Home >> </a>Plex Stats</h1>
-        <% SERVER_STATS.refresh_if_out_of_date %>
       </div>
 
       <div>
@@ -48,9 +47,21 @@
       <div>
         <br />
         <h1>Library Totals</h1>
-        <% for section_name, section_count in SERVER_STATS.count_by_section %>
+        <% for section_name, section_count, section_time in SERVER_STATS.count_by_section %>
           <%= "<p class='stat-results'><span class='yellow'>#{section_name}</span>: #{section_count}</p>" %>
         <% end %>
+
+        <h3>
+          If you were to watch all content on this Plex Server non-stop,<br> it would take you 
+          <%= SERVER_STATS.total_library_duration.split(' ').map { |e|
+            if e == e.to_i.to_s
+              e = "<span class='yellow'> #{e} </span>"
+            elsif %w(month week day hour minute econd).include?(e.delete('s,'))
+              comma = ',' if e.include?(',')
+              e = "<span class='orange'> #{e.delete(',')}</span>#{comma} "
+            end
+            e }.join %>
+        </h3>
       </div>
 
       <div>

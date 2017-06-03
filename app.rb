@@ -44,15 +44,25 @@ get '/sonarr' do
   redirect to media_server(port: ENV['SONARR_PORT'])
 end
 
+# Sonarr
+get '/radarr' do
+  redirect to media_server(port: ENV['RADARR_PORT'])
+end
+
+# Plex Webtools Channel
+get '/webtools' do
+  redirect to media_server(port: ENV['WEBTOOLS_PORT'])
+end
+
 # Plex server stats using Plex API
 get '/stats' do
+  SERVER_STATS.refresh_if_out_of_date
   erb :stats
 end
 
 get '/refresh-stats' do
   SERVER_STATS.refresh
   redirect to '/stats'
-  # erb :stats
 end
 
 # Plex It tutorial

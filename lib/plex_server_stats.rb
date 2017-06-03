@@ -1,11 +1,14 @@
 require 'plex-ruby'
 require 'dotenv'
+require 'time_diff'
 
 Dotenv.load '../.env'
 
 ##
 #
 class PlexServerStats
+  TIME_DURATION_FORMAT = '%y, %M, %w, %d, %H, %N, and %S'
+
   attr_reader :host, :port, :auth_token, :this_week, :last_refresh, :server
 
   def initialize(host, port, auth_token)
@@ -25,7 +28,7 @@ class PlexServerStats
     @last_refresh = Time.now
     LOG.info 'Refreshing server stats'
     @media_added_this_week_by_section = nil
-    @count_by_section = nil
+    @collection_data = nil
   end
 
   def media_added_this_week_by_section
@@ -33,11 +36,31 @@ class PlexServerStats
   end
 
   def count_by_section
-    @count_by_section ||= fetch_counts_by_section
+    @count_by_section ||= collection_data[:counts]
   end
 
   def user_count
     @user_count ||= fetch_user_count
+  end
+
+  def collection_data
+    @collection_data ||= collect_section_data
+  end
+
+  ##
+  # Returns an array of each section in your library by its duration in minutes
+  def duration_by_section
+    @library_duration ||= collection_data[:duration]
+  end
+
+  ##
+  # Returns the total duration of all media in all libraries in hours
+  def total_library_duration
+    library_duration = 0
+    duration_by_section.each do |_section, duration|
+      library_duration += duration
+    end
+    time_diff_components = Time.diff(Time.now, Time.now + library_duration, TIME_DURATION_FORMAT)[:diff]
   end
 
   private
@@ -57,9 +80,17 @@ class PlexServerStats
     end
   end
 
-  def fetch_counts_by_section
-    server.library.sections.each_with_object({}) do |section, hash|
-      hash[section.title] = "#{section.all.count} #{section.type}s"
+  def collect_section_data
+    server.library.sections.each_with_object(Hash.new { |hash, key| hash[key] = {} }) do |section, hash|
+      puts "Fetching #{section.title}"
+      section_count = 0
+      section_duration = 0
+      section.all.each do |record|
+        section_duration += record.duration.to_f / 1000
+        section_count += 1
+      end
+      hash[:counts][section.title] = "#{section_count} #{section.type}s"
+      hash[:duration][section.title] = section_duration
     end
   end
 end
