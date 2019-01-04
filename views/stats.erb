@@ -21,7 +21,7 @@
       <div class="header">
         <p class="plex-title"><%= ENV['SERVER_OWNER_NAME'].upcase %>'S <a href="/plex" class="plex-logo"><img class="main-plex-logo" src="/images/plex-logo-full-no-background.svg"></a> STATS</p>
       </div>
-      
+
       <div>
         <h1><a href="/">Home >> </a>Plex Stats</h1>
       </div>
@@ -37,7 +37,7 @@
               <% if media.title.match(/\d/) %>
                 <%= '<p class="stat-results">' + media.title.gsub(/\d/) { |e| "<span class='yellow'>#{e}</span>" } + '</p>' %>
               <% else %>
-                <%= "<p class='stat-results'>#{media.title}</p>" %>
+                <%= "<p class='stat-results'><span class='yellow'>#{media.title}</span> (#{media.year})</p>" %>
               <% end %>
             <% end %>
           <% end %>
@@ -52,7 +52,7 @@
         <% end %>
 
         <h3>
-          If you were to watch all content on this Plex Server non-stop,<br> it would take you 
+          Users have spent
           <%= SERVER_STATS.total_library_duration.split(' ').map { |e|
             if e == e.to_i.to_s
               e = "<span class='yellow'> #{e} </span>"
@@ -60,7 +60,9 @@
               comma = ',' if e.include?(',')
               e = "<span class='orange'> #{e.delete(',')}</span>#{comma} "
             end
-            e }.join %>
+            e }.join
+          %>
+          on this Plex server
         </h3>
       </div>
 

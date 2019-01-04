@@ -5,12 +5,28 @@ require 'sinatra'
 require 'logger'
 require 'base'
 require 'plex_server_stats'
+require 'tautulli'
 require 'dotenv'
 
 Dotenv.load
 
 LOG = Logger.new(STDOUT)
-SERVER_STATS = PlexServerStats.new(ENV['SERVER_IP_ADDRESS'], ENV['SERVER_PORT'], ENV['SERVER_AUTH_TOKEN'])
+
+if ENV['TAUTULLI_API_KEY']
+  TAUTULLI_CLIENT = Tautulli::Client.new(
+    ENV['SERVER_IP_ADDRESS'],
+    ENV['TAUTULLI_PORT'],
+    ENV['TAUTULLI_API_KEY']
+  )
+end
+
+SERVER_STATS = PlexServerStats.new(
+  ENV['SERVER_IP_ADDRESS'],
+  ENV['SERVER_PORT'],
+  ENV['SERVER_AUTH_TOKEN']
+)
+
+SERVER_STATS.media_added_this_week_by_section
 
 before '*' do
   redirect request.url.sub(%r{^http://}, 'https://') unless request.secure? || request.host == 'localhost'
@@ -34,9 +50,9 @@ get '/requests' do
   redirect to media_server(port: ENV['PLEX_REQUEST_PORT'])
 end
 
-# PlexPy
+# Tautulli (formerlly PlexPy)
 get '/monitor' do
-  redirect to media_server(port: ENV['PLEXPY_PORT'])
+  redirect to media_server(port: ENV['TAUTULLI_PORT'])
 end
 
 # Sonarr

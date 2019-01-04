@@ -8,7 +8,7 @@ Simple web server to redirect my Plex users to different add-ons that run on my 
     * `SERVER_OWNER_NAME`
     * `SERVER_IP_ADDRESS`
     * `PLEX_REQUEST_PORT`
-    * `PLEXPY_PORT`
+    * `TAUTULLI_PORT` (formerlly PLEXPY_PORT)
     * `SONARR_PORT`
 4. Deploy your project!
 
@@ -19,7 +19,7 @@ Simple web server to redirect my Plex users to different add-ons that run on my 
 
 ## ToDo
 * Add stats page
-* Add links to the different Plex apps	
+* Add links to the different Plex apps
 * Add link to request access to my server
 * Implement single sign on for all Plex add-ons
 * Add links to other tools/add-ons
@@ -27,6 +27,6 @@ Simple web server to redirect my Plex users to different add-ons that run on my 
 * Setup templating for additional pages
 
 ## Thanks
-Thank you to the makers of these fine tools that make this little project necessary.  
-[Plex Requests](https://github.com/lokenx/plexrequests-meteor)  
-[PlexPy](https://github.com/drzoidberg33/plexpy)  
+Thank you to the makers of these fine tools that make this little project necessary.
+[Plex Requests](https://github.com/lokenx/plexrequests-meteor)
+[PlexPy](https://github.com/drzoidberg33/plexpy)
